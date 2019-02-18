@@ -8,10 +8,11 @@ public abstract class Personnages extends Main {
     protected String persoName;
     protected String persoCrideguerre;
     private int niveau;
-    private int vie;
+    protected int vie;
     private int force;
     private int agilite;
     private int intelligence;
+    protected Personnages adversaire;
 
 
     public Personnages (int numPlayer, int force, int agilite, int intelligence) {
@@ -47,22 +48,6 @@ public abstract class Personnages extends Main {
         this.persoCrideguerre = persoCrideguerre;
     }
 
-    public int getNiveau() {
-        return niveau;
-    }
-
-    public void setNiveau(int niveau) {
-        this.niveau = niveau;
-    }
-
-    public int getVie() {
-        return vie;
-    }
-
-    public void setVie(int vie) {
-        this.vie = vie;
-    }
-
     public int getForce() {
         return force;
     }
@@ -87,13 +72,28 @@ public abstract class Personnages extends Main {
         this.intelligence = intelligence;
     }
 
-    public void avtivePersonnage() {
+    public void activePersonnage() {
         int choice;
-        if (vie>0) {
+        if (vie > 0) {
             do {
-                choice = Main.demande((persoName + "(" + vie + " vitalité ), veuillez choisir votre attaque (1 : attaque basqiue, 2: attaque spéciale"),1,2);
-            }if (choice != 1 && choice != 2)
+                choice = Main.demande((persoName + "(" + vie + " vitalité ), veuillez choisir votre attaque (1 : attaque basqiue, 2: attaque spéciale"), 1, 2);
+            if (choice != 1 && choice != 2)
                 System.out.println("Vous n'avez par rentré le bon choix !");
-        }while ()
+        } while (choice != 1 && choice != 2);
+            System.out.println(this.play(choice));
+        if (vie <= 0) return;
+        this.adversaire.activePersonnage();}
+        else {
+        System.out.println("Le " + persoName + " à perdu !");
+    }
+    }
+    protected abstract String play (int choice);
+
+    public void setAdversaire (Personnages adversaire) {
+        this.adversaire = adversaire;
+    }
+
+    protected void enleverVie(int pointsAenlever) {
+        vie = vie - pointsAenlever;
     }
 }

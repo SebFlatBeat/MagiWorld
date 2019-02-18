@@ -2,6 +2,7 @@ package Game;
 
 public class Main {
 
+
     public static void main (String[] args){
         int numPlayer = 1;
         Main player1 = creerPlayer(numPlayer); // Création du player 1
@@ -9,6 +10,8 @@ public class Main {
         numPlayer ++;
         Main player2 = creerPlayer(numPlayer); // Creation du player 2
         System.out.println(player2.toString());
+        player1.setAdversaire(player2);
+        player2.setAdversaire(player1);
 
     }
 
@@ -46,7 +49,6 @@ public class Main {
 
         return;
     }
-
 
 
 }
