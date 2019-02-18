@@ -5,9 +5,10 @@ package Game;
  */
 public class Guerrier extends Personnages {
 
-    protected Guerrier(String persoName, int niveau, int vie, int force, int agilite, int intelligence, int sortBasique, int sortSpecial) {
-        super(persoName, niveau, vie, force, agilite, intelligence,sortBasique,sortSpecial);
-        type = "Guerrier";
-        cri = "GROAAR";
+    protected Guerrier( int numPlayer,int force, int agilite, int intelligence) {
+        super(numPlayer, force, agilite, intelligence);
+        setPersoCrideguerre(" GROAAR");
+        setPersoName("Guerrier");
     }
+
 }

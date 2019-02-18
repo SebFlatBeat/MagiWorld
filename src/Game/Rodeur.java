@@ -5,9 +5,9 @@ package Game;
  */
 public class Rodeur extends Personnages {
 
-    protected Rodeur (String persoName, int niveau, int vie, int force, int agilite, int intelligence,int sortBasique, int sortSpecial){
-        super (persoName, niveau, vie, force, agilite, intelligence,sortBasique,sortSpecial);
-        type = "Rôdeur";
-        cri = "sssssssssssssshhhhhhhhhh";
+    protected Rodeur ( int numPlayer,int force, int agilite, int intelligence) {
+        super(numPlayer, force, agilite, intelligence);
+        setPersoName("Rôdeur");
+        setPersoCrideguerre("sssssssssssssshhhhhhhhhh");
     }
 }
