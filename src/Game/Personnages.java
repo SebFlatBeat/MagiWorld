@@ -1,7 +1,10 @@
 package Game;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /**
- * Création de la classe abstraite Personnages; Elle sera utilisée pour les différents rôles
+ * Création de la classe abstraite Personnages;
  */
 public abstract class Personnages extends Main {
     protected String persoNum;
@@ -17,7 +20,7 @@ public abstract class Personnages extends Main {
 
     public Personnages (int numPlayer, int force, int agilite, int intelligence) {
         persoNum = "Joueur " + numPlayer;
-        niveau = force+agilite+intelligence;
+        niveau += force + agilite + intelligence;
         this.force = force;
         this.agilite = agilite;
         this.intelligence = intelligence;
@@ -82,9 +85,9 @@ public abstract class Personnages extends Main {
             force = demande("Maintenant la force de vôtre personnage : " ,0,100);
             agilite = demande("Au tour de l'agilité de votre personnage :" , 0,100);
             intelligence = demande("Et enfin, l'intelligence de vôtre personnage", 0 ,100);
-            if (force+agilite+intelligence != niveau)
+            if (force+agilite+intelligence > niveau)
                 System.out.println("Attention votre total de force + agilité + intelligence ne doit pas DÉPASSER votre niveau !!!!");
-        }while (force+agilite+intelligence != niveau);
+        }while (force+agilite+intelligence > niveau);
         switch (persoName) {
             case 1 :
                 P = new Guerrier(numPlayer,force,agilite,intelligence);
@@ -116,12 +119,33 @@ public abstract class Personnages extends Main {
         System.out.println("Le " + persoName + " à perdu !");
     }
     }
+
+    public static int demande (String string, int min) {
+        int choice;
+        boolean rightChoice;
+        Scanner sc = new Scanner(System.in);
+        do {
+            choice = 0;
+            System.out.println(string);
+            try {
+                rightChoice = true;
+                choice = sc.nextInt();
+            } catch (InputMismatchException e) {
+                sc.next();
+                rightChoice = false;
+            }
+            if (rightChoice) {
+                if (!(choice >= min)) rightChoice = false;
+            }
+        }while (!rightChoice) ;
+        return choice;
+    }
+
     public static int demande (String string, int min, int max){
         int choice;
         do {
-            choice = demande(string,min)
+            choice = demande(string,min);
         }while (choice>max);
-
         return min;
     }
 
@@ -133,5 +157,9 @@ public abstract class Personnages extends Main {
 
     protected void enleverVie(int pointsAenlever) {
         vie = vie - pointsAenlever;
+    }
+
+    public String toString() {
+        return getPersoCrideguerre() + " Je suis le " + getPersoNum() + ", et je suis un " + getPersoName() + " de " + niveau + ". Je possède " + vie + " de vitalité, " + getForce() + " de force, " + getAgilite() + " d'agilté, et " + getIntelligence() + " d'intelligence !!!";
     }
 }

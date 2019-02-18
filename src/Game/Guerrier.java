@@ -7,7 +7,7 @@ public class Guerrier extends Personnages implements Attaques{
 
     protected Guerrier( int numPlayer,int force, int agilite, int intelligence) {
         super(numPlayer, force, agilite, intelligence);
-        setPersoCrideguerre(" GROAAR");
+        setPersoCrideguerre(" GROAAR ");
         setPersoName("Guerrier");
     }
 
