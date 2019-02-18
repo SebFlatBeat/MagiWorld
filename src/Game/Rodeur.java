@@ -18,12 +18,13 @@ public class Rodeur extends Personnages implements Attaques{
         }else if (choice == 2) {
             attaqueSpecial("Concentration");
         }
-        return this.play(choice);
+        return String.valueOf(choice);
     }
 
     @Override
     public void attaqueBasique(String basicName) {
-
+        adversaire.enleverVie(getAgilite());
+        System.out.println(persoName + " tir à l'arc et inflige " + getAgilite() + " de points de dégâts !");
     }
 
     @Override

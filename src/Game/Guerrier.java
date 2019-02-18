@@ -18,13 +18,13 @@ public class Guerrier extends Personnages implements Attaques{
         } else if (choice == 2) {
             attaqueSpecial("Coup de Rage");
         }
-        return this.play(choice);
+        return String.valueOf(choice);
     }
 
     @Override
     public void attaqueBasique(String basicName) {
         adversaire.enleverVie(getForce());
-        System.out.println(persoName + " utilise Coup d'épée et inflige " + getForce() + "de dégâts !");
+        System.out.println(persoName + " utilise l'attaque Coup d'épée et inflige " + getForce() + " points de dégâts !");
 
     }
 
@@ -32,7 +32,7 @@ public class Guerrier extends Personnages implements Attaques{
     public void attaqueSpecial(String specialName) {
         adversaire.enleverVie(getForce()*2);
         vie = vie - getForce()/2;
-        System.out.println(persoName + " utilise Coup de Rage, il inflige " + (getForce()*2 + "de dégâts et perd " + (getForce()/2) + " de vitalité ! " ));
+        System.out.println(persoName + " utilise l'attaque Coup de Rage, il inflige " + (getForce()*2 + " points de dégâts et perd " + (getForce()/2) + " points de vitalité ! " ));
     }
 
 }

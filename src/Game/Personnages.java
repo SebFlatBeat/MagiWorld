@@ -51,6 +51,22 @@ public abstract class Personnages extends Main {
         this.persoCrideguerre = persoCrideguerre;
     }
 
+    public int getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(int niveau) {
+        this.niveau = niveau;
+    }
+
+    public int getVie() {
+        return vie;
+    }
+
+    public void setVie(int vie) {
+        this.vie = vie;
+    }
+
     public int getForce() {
         return force;
     }
@@ -73,6 +89,10 @@ public abstract class Personnages extends Main {
 
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
+    }
+
+    public Personnages getAdversaire() {
+        return adversaire;
     }
 
     protected static Personnages creerPlayer (int numPlayer) {
@@ -104,7 +124,7 @@ public abstract class Personnages extends Main {
         return P;
     }
 
-    public void activePersonnage() {
+    protected void activePersonnage() {
         int choice;
         if (vie > 0) {
             do {
@@ -146,7 +166,7 @@ public abstract class Personnages extends Main {
         do {
             choice = demande(string,min);
         }while (choice>max);
-        return min;
+        return choice;
     }
 
     protected abstract String play (int choice);
@@ -160,6 +180,6 @@ public abstract class Personnages extends Main {
     }
 
     public String toString() {
-        return getPersoCrideguerre() + " Je suis le " + getPersoNum() + ", et je suis un " + getPersoName() + " de " + niveau + ". Je possède " + vie + " de vitalité, " + getForce() + " de force, " + getAgilite() + " d'agilté, et " + getIntelligence() + " d'intelligence !!!";
+        return getPersoCrideguerre() + " je suis le " + getPersoNum() + ". Je suis un " + getPersoName() + " de niveau " + niveau + ". Je possède " + vie + " points de vitalité. J'ai " + getForce() + " points de force, " + getAgilite() + " points d'agilté, et " + getIntelligence() + " points d'intelligence !!!";
     }
 }
