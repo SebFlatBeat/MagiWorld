@@ -3,7 +3,7 @@ package Game;
 /**
  * classe des personnages de type Guerrier
  */
-public class Guerrier extends Personnages implements Attaques{
+public class Guerrier extends Personnage implements Attaques{
 
     protected Guerrier( int numPlayer,int force, int agilite, int intelligence) {
         super(numPlayer, force, agilite, intelligence);
