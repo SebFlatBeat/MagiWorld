@@ -35,10 +35,10 @@ public class Mage extends Personnage implements Attaques {
         if (getVie() < getVieMax()) {
             joueurActif.ajouterVie(getIntelligence() * 2);
         }
-            { if (getVie() > getVieMax()) {
+            { if (getVie() >= getVieMax()) {
                 System.out.println(persoName + " utilise son pouvoir de régéneration et gagne " + ((getVieMax()+(getIntelligence()*2)-getVie())) + "  points de vie !! ");
                 vieMax = vie;
-            } else if (getVie() <= getVieMax()) {
+            } else if (getVie() < getVieMax()) {
                 System.out.println(persoName + " utilise son pouvoir de régéneration et gagne " + (getIntelligence() * 2) + "  points de vie !! ");
             }
         }

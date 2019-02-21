@@ -10,10 +10,10 @@ public class PersonnageFabrique{
         System.out.println("Création du Player " + numPlayer);
         persoName = demande ("Choisisez votre personnage : (1 : Guerrier, 2 : Rôdeur , 3 : Mage)",1 , 3);
         do {
-            niveau = demande("Choisissez le niveau de votre personnage : ", 1,100);
-            force = demande("Maintenant la force de votre personnage : " ,0,100);
-            agilite = demande("Au tour de l'agilité de votre personnage :" , 0,100);
-            intelligence = demande("Et enfin, l'intelligence de votre personnage", 0 ,100);
+            niveau = demande("Choisissez le niveau de votre personnage entre 1 et 100 : ", 1,100);
+            force = demande("Maintenant la force de votre personnage entre 0 et 100 : " ,0,100);
+            agilite = demande("Au tour de l'agilité de votre personnage entre 0 et 100 :" , 0,100);
+            intelligence = demande("Et enfin, l'intelligence de votre personnage entre 0 et 100 :", 0 ,100);
             if (force+agilite+intelligence > niveau)
                 System.out.println("Attention votre total de force + agilité + intelligence ne doit pas DÉPASSER votre niveau !!!!");
         }while (force+agilite+intelligence > niveau);
